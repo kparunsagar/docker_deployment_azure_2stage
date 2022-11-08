@@ -35,7 +35,10 @@ stages:
       inputs:
         mavenPomFile: 'pom.xml'
     
-    
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'arunContReg'
+        command: 'login'
     - task: DockerCompose@0
       inputs:
         containerregistrytype: 'Azure Container Registry'
