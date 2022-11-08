@@ -51,7 +51,12 @@ stages:
         azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a0/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
         dockerComposeFile: '**/docker-compose.yaml'
         action: 'Build services'
-        
+    - task: DockerCompose@0
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a0/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
+        dockerComposeFile: '**/docker-compose.yaml'
+        action: 'Push services'
     
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
