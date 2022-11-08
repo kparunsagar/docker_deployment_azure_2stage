@@ -39,22 +39,13 @@ stages:
       inputs:
         containerRegistry: 'arunContReg'
         command: 'login'
-    - task: DockerCompose@0
-      displayName: Container.registry.login
+    - task: Docker@2
       inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)'
-        azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a0/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
-        dockerComposeFile: '**/docker-compose.yaml'
-        action: Build.services
-    - task: DockerCompose@0
-      inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)'
-        azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a0/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
-        dockerComposeFile: '**/docker-compose.yml'
-        action: 'Run a Docker Compose command'
-        dockerComposeCommand: 'build'
+        containerRegistry: 'arunContReg'
+        repository: 'arunrepo'
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+    
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
