@@ -9,7 +9,7 @@ trigger:
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: 'a7c0b4fe-f3ef-4ed0-8a36-1db496943a48'
+  azureSubscription: 'a7c0b4fe-f3ef-4ed0-8a36-1db496943a481'
 
   # Web app name
   webAppName: 'arunappcode'
@@ -49,23 +49,23 @@ stages:
     - task: DockerCompose@0
       inputs:
         containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)'
-        azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a0/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
+        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a01)'
+        azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a01/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
         dockerComposeFile: '**/docker-compose.yaml'
         action: 'Run services'
     
     - task: DockerCompose@0
       inputs:
         containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)'
-        azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a0/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
+        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a01)'
+        azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a01/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
         dockerComposeFile: '**/docker-compose.yaml'
         action: 'Build services'
     - task: DockerCompose@0
       inputs:
         containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a0)'
-        azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a0/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
+        azureSubscription: 'BFSI_LGI_DevOps_Training_POC (f3f0b402-1498-4537-9728-704a780011a01)'
+        azureContainerRegistry: '{"loginServer":"aruncontreg.azurecr.io", "id" : "/subscriptions/f3f0b402-1498-4537-9728-704a780011a01/resourceGroups/arunRg/providers/Microsoft.ContainerRegistry/registries/arunContReg"}'
         dockerComposeFile: '**/docker-compose.yml'
         action: 'Push services'
     - task: CopyFiles@2
